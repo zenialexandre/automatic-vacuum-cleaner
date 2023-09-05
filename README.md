@@ -1,2 +1,2 @@
-# ai-projects
-Artificial Intelligence Projects made in my classes at college.
+# automatic-vaccum-cleaner
+Artificial Intelligence exercise made in my classes at college.
