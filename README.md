@@ -1,2 +1,2 @@
-# automatic-vaccum-cleaner
-Artificial Intelligence exercise made in my classes at college.
+# automatic-vacuum-cleaner
+Exercise made in my Artificial Intelligence classes at college.
