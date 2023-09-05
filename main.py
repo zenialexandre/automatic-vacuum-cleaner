@@ -41,7 +41,7 @@ def show_plot_with_positions():
 
  plt.imshow(plot_matrix, 'gray')
  plt.nipy_spectral()
- plt.plot([vaccum_position_x], [vaccum_position_y], marker='o', color='r', ls='')
+ plt.plot(vaccum_position_x, vaccum_position_y, marker='o', color='r', ls='')
  plt.show(block=False)
  plt.pause(0.5)
  plt.clf()
