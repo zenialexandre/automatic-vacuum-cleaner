@@ -33,36 +33,26 @@ def first_show_plot():
  show_plot_with_positions()
 
 def walking_plots():
- global plot_matrix
- global vacuum_position_x
- global vacuum_position_y
-
  while is_plot_dirty():
   vacuum_walker()
   show_plot_with_positions()
 
   if (plot_matrix[vacuum_position_x][vacuum_position_y] == 2):
-   plot_matrix[vacuum_position_x][vacuum_position_y] = 0
+    plot_matrix[vacuum_position_x][vacuum_position_y] = 0
 
  show_plot_with_positions()
 
 def vacuum_walker():
  global vacuum_position_x
  global vacuum_position_y
+ action_current_index = actions_plot_matrix[vacuum_position_x][vacuum_position_y]
 
- if (get_action_current_index() == 5):
+ if (action_current_index == 5):
   vacuum_position_x += 1
- elif (get_action_current_index() == 7):
+ elif (action_current_index == 7):
   vacuum_position_x -= 1
- elif (get_action_current_index() == 6):
+ elif (action_current_index == 6):
   vacuum_position_y += 1
-
-def get_action_current_index():
- global actions_plot_matrix
- global vacuum_position_x
- global vacuum_position_y
-
- return actions_plot_matrix[vacuum_position_x][vacuum_position_y]
 
 def show_plot_with_positions():
  plt.imshow(plot_matrix, 'gray')
