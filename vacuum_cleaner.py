@@ -33,12 +33,12 @@ def first_show_plot():
  show_plot_with_positions()
 
 def walking_plots():
+ clean_dirt()
+
  while is_plot_dirty():
   vacuum_walker()
+  clean_dirt()
   show_plot_with_positions()
-
-  if (plot_matrix[vacuum_position_x][vacuum_position_y] == 2):
-    plot_matrix[vacuum_position_x][vacuum_position_y] = 0
 
  show_plot_with_positions()
 
@@ -61,6 +61,12 @@ def show_plot_with_positions():
  plt.show(block=False)
  plt.pause(0.5)
  plt.clf()
+
+def clean_dirt():
+ global plot_matrix
+
+ if (plot_matrix[vacuum_position_x][vacuum_position_y] == 2):
+  plot_matrix[vacuum_position_x][vacuum_position_y] = 0
 
 def get_dirt_number():
  need_reading = True
