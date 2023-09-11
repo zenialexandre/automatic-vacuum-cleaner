@@ -40,8 +40,6 @@ def walking_plots():
   clean_dirt()
   show_plot_with_positions()
 
- show_plot_with_positions()
-
 def vacuum_walker():
  global vacuum_position_x
  global vacuum_position_y
@@ -57,7 +55,7 @@ def vacuum_walker():
 def show_plot_with_positions():
  plt.imshow(plot_matrix, 'gray')
  plt.nipy_spectral()
- plt.plot(vacuum_position_x, vacuum_position_y, marker='o', color='r', ls='')
+ plt.plot(vacuum_position_y, vacuum_position_x, marker='o', color='r', ls='')
  plt.show(block=False)
  plt.pause(0.5)
  plt.clf()
@@ -87,7 +85,18 @@ def initialize_plot_matrix_with_dirt():
  for _ in range(get_dirt_number()):
   dirt_position_x = randint(1, 4)
   dirt_position_y = randint(1, 4)
+
+  while (is_position_dirty(dirt_position_x, dirt_position_y)):
+   dirt_position_x = randint(1, 4)
+   dirt_position_y = randint(1, 4)
+
   plot_matrix[dirt_position_x][dirt_position_y] = 2
+
+def is_position_dirty(dirt_position_x, dirt_position_y):
+ if (plot_matrix[dirt_position_x][dirt_position_y] == 2):
+  return True
+ 
+ return False
 
 def is_plot_dirty():
  for row_value in range(len(plot_matrix[vacuum_position_x])):
