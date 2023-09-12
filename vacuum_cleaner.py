@@ -102,7 +102,6 @@ def initialize_plot_matrix_with_dirt():
 def is_position_dirty(dirt_position_x, dirt_position_y):
  if (plot_matrix[dirt_position_x][dirt_position_y] == 2):
   return True
- 
  return False
 
 def is_plot_dirty():
