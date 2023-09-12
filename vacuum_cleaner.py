@@ -27,6 +27,7 @@ actions_plot_matrix = np.array(
 
 vacuum_position_x = 1
 vacuum_position_y = 1
+point_counter = 0
 
 def first_show_plot():
  initialize_plot_matrix_with_dirt()
@@ -43,13 +44,17 @@ def walking_plots():
 def vacuum_walker():
  global vacuum_position_x
  global vacuum_position_y
+ global point_counter
  action_current_index = actions_plot_matrix[vacuum_position_x][vacuum_position_y]
 
  if (action_current_index == 5):
+  point_counter += 1
   vacuum_position_x += 1
  elif (action_current_index == 7):
+  point_counter += 1
   vacuum_position_x -= 1
  elif (action_current_index == 6):
+  point_counter += 1
   vacuum_position_y += 1
 
 def show_plot_with_positions():
@@ -62,9 +67,11 @@ def show_plot_with_positions():
 
 def clean_dirt():
  global plot_matrix
+ global point_counter
 
  if (plot_matrix[vacuum_position_x][vacuum_position_y] == 2):
   plot_matrix[vacuum_position_x][vacuum_position_y] = 0
+  point_counter += 1
 
 def get_dirt_number():
  need_reading = True
@@ -107,3 +114,4 @@ def is_plot_dirty():
 
 first_show_plot()
 walking_plots()
+print("Points: ", point_counter)
